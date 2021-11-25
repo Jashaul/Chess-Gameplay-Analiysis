@@ -1,2 +1,5 @@
 pandas
 requests
+logging
+fsspec
+flatten_json
