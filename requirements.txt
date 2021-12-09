@@ -1,5 +1,5 @@
 pandas
 requests
 logging
-fsspec
+# fsspec
 flatten_json

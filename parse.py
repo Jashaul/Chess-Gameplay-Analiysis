@@ -25,15 +25,14 @@ def parse_data(record, table_info = None):
         table_info.append(info)
     # convert list to dataframe and store in csv file        
     table_df = pd.json_normalize(table_info)
-    table_df.to_csv('all.csv', mode='a', index=False, encoding='utf-8')
+    table_df.to_csv('raw_data.csv', mode='a', index=False, encoding='utf-8')
     return True
 
-# parse_data(['Aborigen100500'])
-player_list = pd.read_csv("player_list.csv").values.tolist()
-try:
-    table_info = []
-    for record in player_list[:]:
-        table_info = parse_data(record)
-        logging.info(record)
-except Exception as e:
-    logging.debug(f"error fetching player list", exc_info=True)
+def merge_data():
+    player_list = pd.read_csv("player_list.csv").values.tolist()
+    try:
+        for record in player_list[:]:
+            parse_data(record)
+            logging.info(record)
+    except Exception as e:
+        logging.debug(f"error stiching player data", exc_info=True)
