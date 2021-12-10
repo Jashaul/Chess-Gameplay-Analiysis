@@ -3,6 +3,7 @@ import heapq
 import re
 import chess
 import pandas as pd
+import os
 
 
 def timer_to_seconds(timer):
@@ -156,7 +157,7 @@ def process_pgn(game_id, pgn):
 
 
 # csv file name
-filename = "/Users/vamshiadi/Downloads/all.csv"
+filename = os.path.exists(os.path.join(os.getcwd(), 'raw_data.csv'))
 
 # initializing the titles and rows list
 fields = []
