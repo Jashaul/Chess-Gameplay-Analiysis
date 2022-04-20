@@ -3,3 +3,4 @@ requests
 logging
 # fsspec
 flatten_json
+chess
